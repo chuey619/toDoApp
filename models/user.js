@@ -5,9 +5,9 @@ class User {
       (this.email = user.email),
       (this.password_digest = user.password_digest);
   }
-  static getById(id) {
+  static getByUserName(name) {
     return db
-      .oneOrNone(`SELECT * FROM users WHERE id = $1`, id)
+      .oneOrNone(`SELECT * FROM users WHERE name = $1`, name)
       .then((user) => {
         if (user) return new this(user);
         throw new Error("To Do not found");
@@ -50,3 +50,5 @@ class User {
     return db.oneOrNone(`DELETE FROM users WHERE id = $1`, this.id);
   }
 }
+
+module.exports = User;
