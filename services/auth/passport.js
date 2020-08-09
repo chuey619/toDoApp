@@ -6,8 +6,8 @@ module.exports = () => {
     done(null, user.name);
   });
 
-  passport.deserializeUser((username, done) => {
-    User.getByUserName(username)
+  passport.deserializeUser((name, done) => {
+    User.getByUserName(name)
       .then((user) => {
         return done(null, user);
       })

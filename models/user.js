@@ -1,3 +1,5 @@
+const db = require("../db/config");
+const ToDo = require("./toDo");
 class User {
   constructor(user) {
     (this.id = user.id || null),
@@ -48,6 +50,13 @@ class User {
   }
   delete() {
     return db.oneOrNone(`DELETE FROM users WHERE id = $1`, this.id);
+  }
+  getAllToDos() {
+    return db
+      .manyOrNone(`SELECT * FROM todos WHERE user_id = $1`, this.id)
+      .then((toDos) => {
+        return toDos.map((toDo) => new ToDo(toDo));
+      });
   }
 }
 

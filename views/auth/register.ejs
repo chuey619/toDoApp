@@ -1,0 +1,14 @@
+<%- include('../partials/boilerplate')  %>
+<h1>Welcome!</h1>
+<div class="auth">
+    <form method='POST' action='/users'>
+      <input name='name' type='text' placeholder='name' required />
+      <input name='email' type='text' placeholder='email' required />
+      <input name='password' type='password' placeholder='password' required />
+      <div class="register" >
+        <input type='submit' value='Register!' />
+      </div>
+      
+    </form>
+  </div>
+<%- include ('../partials/end') %> 

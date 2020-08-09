@@ -1,3 +1,25 @@
-<h1>to do will go here</h1>
+
 <%- include('../partials/boilerplate.ejs')  %> 
+<div class="single-todo">
+    <div class="title">
+        <h2> <%= toDo.title %>  </h2>
+    </div>
+    <div class="status">
+        <h2>Status: <%= toDo.status %>  </h2>
+    </div>
+    
+    <div class="description">
+        <h2>Description:</h2>
+        <p> <%= toDo.description %>  </p>
+    </div>
+    
+    <div class="show-buttons">
+        <a href="/toDos/<%= toDo.id %>/edit ">EDIT</a>
+        <form method="POST" action="/toDos/<%= toDo.id %>?_method=DELETE">
+            <input type="submit" value="DELETE">
+        </form>
+        <a href="/toDos">GO BACK</a>
+    </div>
+  
+</div>
 <%- include('../partials/end.ejs')  %> 

@@ -1,4 +1,29 @@
 <%- include('../partials/boilerplate.ejs')  %> 
-<h1>all to dos for a user will go here</h1>
 
+<div class="add-button">
+    <a class="add" href="toDos/add">ADD A TO DO</a>
+</div>
+
+<% for (let toDo of data.toDos) {%>
+    <div class="todo">
+        <div class="top">
+            <p> <%= toDo.title %> </p>
+            <p><%= toDo.status %> </p>
+        </div>
+        <div class="bottom">
+            <p> <%= toDo.category %>  </p>
+            <div class="form">
+                <a href="/toDos/<%= toDo.id %>">INFO</a>
+                <a href="/toDos/<%= toDo.id %>/edit ">EDIT</a>
+                <form method="POST" action="/toDos/<%= toDo.id %>?_method=DELETE">
+                    <input type="submit" value="DELETE">
+                  </form>
+            </div>
+           
+        </div>
+    </div>
+<% } %>
+
+
+</div>
 <%- include('../partials/end.ejs')  %> 

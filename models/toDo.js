@@ -10,24 +10,22 @@ class ToDo {
   }
   static getAllForUser(user_id) {
     return db
-      .manyOrNone(`SELECT * FROM toDos WHERE user_id = $1`, user_id)
+      .manyOrNone(`SELECT * FROM todo WHERE user_id = $1`, user_id)
       .then((toDos) => {
         return toDos.map((toDo) => new this(toDo));
       });
   }
   static getById(id) {
-    return db
-      .oneOrNone(`SELECT * FROM toDos WHERE id = $1`, id)
-      .then((toDo) => {
-        if (toDo) return new this(toDO);
-        throw new Error("To Do not found");
-      });
+    return db.oneOrNone(`SELECT * FROM todo WHERE id = $1`, id).then((toDo) => {
+      if (toDo) return new this(toDo);
+      throw new Error("To Do not found");
+    });
   }
   save() {
     return db
       .one(
         `
-      INSERT INTO toDos
+      INSERT INTO todo
       (title, description, status, category, user_id)
       VALUES
       ($/title/, $/description/, $/status/,$/category/, $/user_id/)
@@ -43,7 +41,7 @@ class ToDo {
     return db
       .oneOrNone(
         `
-      UPDATE toDos SET
+      UPDATE todo SET
         title = $/title/,
         description = $/description/,
         status = $/status/,
@@ -58,7 +56,7 @@ class ToDo {
       });
   }
   delete() {
-    return db.oneOrNone(`DELETE FROM toDos WHERE id = $1`, this.id);
+    return db.oneOrNone(`DELETE FROM todo WHERE id = $1`, this.id);
   }
 }
 

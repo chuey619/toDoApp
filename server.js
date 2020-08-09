@@ -6,8 +6,9 @@ const express = require("express"),
   session = require("express-session"),
   passport = require("passport");
 
-//const authRouter = require("./routes/auth-router");
+const authRouter = require("./routes/auth-router");
 const toDoRouter = require("./routes/toDo-router");
+const userRouter = require("./routes/user-routes");
 
 const app = express();
 require("dotenv").config();
@@ -38,13 +39,11 @@ app.listen(PORT, () => {
 });
 
 app.get("/", (req, res) => {
-  res.render("landing");
-  res.send("landing");
+  res.render("index");
 });
-
-app.use("/:user", toDoRouter);
+app.use("/users", userRouter);
 app.use("/auth", authRouter);
-
+app.use("/toDos", toDoRouter);
 app.use("*", (req, res) => {
   res.status(404).send({
     error: "Nothing to see here!",
@@ -52,5 +51,5 @@ app.use("*", (req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  res.status(500).send({ err });
+  res.status(500).send({ err, message: err.message });
 });

@@ -1,4 +1,30 @@
 <%- include('../partials/boilerplate.ejs')  %> 
-<h1>form to edit todo goes here</h1>
+<form class="edit-form" method="POST" action="/toDos/<%= toDo.id %>?_method=PUT">
+  <div>
+    <h4>TITLE</h4>
+    <input type="text" name="title" value="<%= toDo.title %>" placeholder="title"/>
+  </div>
+   <div>
+    <h4>CATEGORY</h4>
+    <input type="text" name="category" value="<%= toDo.category %>" placeholder="catgeory" />
+   </div>
+   <div>
+    <H4>DESCRIPTION</H4>
+    <textarea name="description" id="" cols="30" rows="10"></textarea>
+   </div>
+   <div>
+     <h4>STATUS</h4>
+    <select name="status" id="">
+      <option value="In progress">In Progress</option>
+      <option value="Done">Done</option>
+  </select>
+   </div>
+   
+    <div class="edit-buttons">
+      <input type="submit" value="Edit"/>
+      <a href="/toDos">Go Back</a>
+    </div>
+    
+  </form>
 
 <%- include('../partials/end.ejs')  %> 

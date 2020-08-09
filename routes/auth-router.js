@@ -1,5 +1,5 @@
 const authRouter = require("express").Router();
-
+const userController = require("../controllers/user-controller");
 const authHelpers = require("../services/auth/auth-helpers");
 const passport = require("../services/auth/local");
 
@@ -10,7 +10,7 @@ authRouter.get("/login", authHelpers.loginRedirect, (req, res) => {
 authRouter.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: `/${req.user.username}`,
+    successRedirect: `/toDos`,
     failureRedirect: "/auth/login",
     failureFlash: true,
   })
@@ -18,7 +18,7 @@ authRouter.post(
 
 authRouter.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("back");
+  res.redirect("/");
 });
 
 module.exports = authRouter;
