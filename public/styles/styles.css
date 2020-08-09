@@ -1,7 +1,8 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Sora', sans-seri;
     width: 100vw;
     height: 100vh;
+    background-color: #85929E;
 }
 
 ul {
@@ -9,9 +10,9 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #e9e9e9;
-    border-radius: 20px;
-    border: 6px solid #f9f9f9;
+    
+    width: 100%;
+    
   }
   li {
     float: right;
@@ -27,12 +28,16 @@ ul {
   h1 {
       text-align: center;
       font-size: 3rem;
-      margin-top: 10%;
+      margin-top: 5%;
       
   }
   nav {
       width: 100%;
       margin: 0 auto;
+      box-sizing: content-box;
+      background-color: #e9e9e9;
+      overflow: hidden;
+      border-radius: 20px 20px 0 0;
   }
   .buttons {
       display: flex;
@@ -42,11 +47,12 @@ ul {
   .container {
       width: 70%;
       height: 90%;
-      background-color: #f9f9f9;
-      margin: 0 auto;
-      border-radius: 40px;
-      border: 6px solid #f9f9f9;
-      box-sizing: border-box;
+      background-color: white;
+      margin: 3% auto;
+      border-radius: 20px;
+      
+      /* border: 6px solid #f9f9f9; */
+      /* box-sizing: border-box; */
   }
   .buttons a {
       border: 2px solid lightskyblue;
@@ -96,10 +102,11 @@ ul {
     margin-bottom: 5%;
     padding: 5px 20px;
     
+    
   }
   .form {
     display: flex;
-    
+    height: 10%;
 
   }
 
@@ -114,25 +121,10 @@ ul {
     flex-direction: column;
     margin-top: 3%;
     font-weight: 600;
+    border: 1px solid lightgray;
   }
 
-  .bottom a {
-    border: 1px solid black;
-    text-decoration: none;
-    border-radius: 3px;
-    padding: 1px;
-    font-size: .9rem;
-    background-color: lightskyblue;
-    color: black;
-    max-height: 39%;
-    margin-right: 5px;
-    margin-top: 5%;
-    
-  }
-  .bottom a:visited {
-    color: black;
-  }
-  .bottom input {
+  .form a {
     border: 1px solid black;
     text-decoration: none;
     border-radius: 3px;
@@ -142,6 +134,28 @@ ul {
     color: black;
     font-weight: 600;
     margin-top: 8%;
+    margin-left: 1%;
+    
+  }
+  .form a:visited {
+    color: black;
+  }
+  .delete-form input {
+    border: 1px solid black;
+    text-decoration: none;
+    border-radius: 3px;
+    padding: 1px;
+    font-size: .9rem;
+    background-color: lightskyblue;
+    color: black;
+    font-weight: 600;
+    margin-top: 15%;
+    margin-left: 1%;
+  }
+
+  .form form {
+    margin-bottom: 0;
+    
   }
 
   .add {
@@ -156,7 +170,7 @@ ul {
   }
   .add-button  {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 3% auto;
     display: flex;
     justify-content: start;
     width: 70%;

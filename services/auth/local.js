@@ -19,7 +19,6 @@ passport.use(
         if (!authHelpers.comparePass(password, user.password_digest)) {
           return done(null, false);
         } else {
-          console.log("here");
           return done(null, user);
         }
       })

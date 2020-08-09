@@ -24,7 +24,7 @@ toDoController.show = (req, res, next) => {
 
 toDoController.create = (req, res, next) => {
   new ToDo({
-    description: req.body.descrpition,
+    description: req.body.description,
     title: req.body.title,
     category: req.body.category,
     status: "In progress",

@@ -12,7 +12,7 @@ class User {
       .oneOrNone(`SELECT * FROM users WHERE name = $1`, name)
       .then((user) => {
         if (user) return new this(user);
-        throw new Error("To Do not found");
+        return;
       });
   }
   save() {

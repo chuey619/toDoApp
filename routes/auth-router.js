@@ -10,7 +10,7 @@ authRouter.get("/login", authHelpers.loginRedirect, (req, res) => {
 authRouter.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: `/toDos`,
+    successRedirect: `/toDos/`,
     failureRedirect: "/auth/login",
     failureFlash: true,
   })

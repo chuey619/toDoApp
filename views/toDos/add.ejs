@@ -1,7 +1,7 @@
 <%- include('../partials/boilerplate.ejs')  %> 
 
 
-    <form class="edit-form" method='POST' action='/toDos'>
+    <form id="add-form" class="edit-form" method='POST' action='/toDos'>
       <div>
         <h4>TITLE</h4>
         <input type="text" name="title" />
@@ -12,7 +12,7 @@
        </div>
        <div>
         <H4>DESCRIPTION</H4>
-        <textarea name="description" id="" cols="30" rows="10"></textarea>
+        <textarea form="add-form" name="description" id="" cols="30" rows="10"></textarea>
        </div> 
        <div class="edit-buttons">
           <input type="submit" value="Add!"/>
